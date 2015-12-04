@@ -168,7 +168,7 @@ int main()
 
         std::cout << "\n---------------\n";
 
-        for (uint64_t i = 1; i <= MAX_BITMASK_VALUE; i *= 2)
+        for (uint64_t i = 1; i <= uint64_t(MAX_BITMASK_VALUE); i *= 2)
         {
             if (testNumber & i)
             {

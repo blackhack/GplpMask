@@ -174,19 +174,19 @@ int main()
             if (testNumber & i)
             {
                 if (opcion == -1)
-                    std::cout << "Dec: " << i << " ,Hex: 0x" << std::hex << i << std::endl;
+                    std::cout << "Dec: " << i << " ,Hex: 0x" << std::hex << i << std::dec << std::endl;
                 else if (_storeBitmaskStrings[BitMaskType(opcion)]->_strings.find(i) != _storeBitmaskStrings[BitMaskType(opcion)]->_strings.end())
-                {
-                    std::cout << _storeBitmaskStrings[BitMaskType(opcion)]->_strings[i] << " = Dec: " << i << " ,Hex: 0x" << std::hex << i << std::endl;
-                }
+                    std::cout << _storeBitmaskStrings[BitMaskType(opcion)]->_strings[i] << " = Dec: " << i << " ,Hex: 0x" << std::hex << i << std::dec << std::endl;
                 else // En caso de que falte en el archivo de strings.
-                    std::cout << "No se encontro texto = " << "Dec: " << i << " ,Hex: 0x" << std::hex << i << std::endl;
+                    std::cout << "No se encontro texto = " << "Dec: " << i << " ,Hex: 0x" << std::hex << i << std::dec << std::endl;
             }
         }
 
         std::cout << "---------------\n";
 
-        system("PAUSE");
+        std::cout << "Presione enter para continuar...\n";
+        std::cin.ignore();
+        std::cin.get();
     }
 
     DeleteAll();

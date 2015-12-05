@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+#include <cctype>
 #include <boost/filesystem.hpp>
 #include <boost/tokenizer.hpp>
 #include <boost/lexical_cast.hpp>
@@ -73,9 +74,9 @@ void LoadBitmaskString()
                     boost::tokenizer<boost::char_separator<char> >::iterator token = tokens.begin();
 
                     std::string maskName = *token++;
-                    maskName.erase(std::remove_if(maskName.begin(), maskName.end(), std::isspace), maskName.end()); // Borramos cualquier espacio que tenga
+                    maskName.erase(std::remove_if(maskName.begin(), maskName.end(), [](char c){ return isspace(c, std::cin.getloc()); }), maskName.end());// Borramos cualquier espacio que tenga
                     std::string hexString = *token++;
-                    hexString.erase(std::remove_if(hexString.begin(), hexString.end(), std::isspace), hexString.end()); // Borramos cualquier espacio que tenga
+                    hexString.erase(std::remove_if(hexString.begin(), hexString.end(), [](char c){ return isspace(c, std::cin.getloc()); }), hexString.end());// Borramos cualquier espacio que tenga
 
                     // std::cout << maskName << " = " << hexString << std::endl;
 
